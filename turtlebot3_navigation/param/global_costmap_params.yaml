@@ -1,10 +1,37 @@
 global_costmap:
   global_frame: map
   robot_base_frame: base_footprint
+  
+  obstacle_range: 20.0
+  raytrace_range: 20.0
 
   update_frequency: 10.0
   publish_frequency: 10.0
-  transform_tolerance: 0.5
+  transform_tolerance: 0.1
+  
+  cost_scaling_factor: 10.0
+  inflation_radius: 3.5
 
   static_map: true
+  
+  map_type: costmap
+  
+  observation_sources: scan
+  scan: {sensor_frame: base_scan, data_type: LaserScan, topic: scan, marking: true, clearing: false}
+  
+  plugins:
+  
+      - {name: static_map,
+       type: "costmap_2d::StaticLayer"}
+  
+      - {name: obstacles,
+        type: "costmap_2d::VoxelLayer"}
+  
+      - {name: simplelayer,
+        type: "simple_layer_namespace::SimpleLayer"}
+       
+      - {name: inflation_layer,
+        type: "costmap_2d::InflationLayer"}
+  
+  
  

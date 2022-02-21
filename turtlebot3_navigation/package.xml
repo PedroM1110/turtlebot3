@@ -20,4 +20,6 @@
   <exec_depend>map_server</exec_depend>
   <exec_depend>move_base</exec_depend>
   <exec_depend>turtlebot3_bringup</exec_depend>
+  <exec_depend>navigation</exec_depend>
+  <exec_depend>reconfig</exec_depend>
 </package>
